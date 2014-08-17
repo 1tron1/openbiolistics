@@ -38,6 +38,7 @@ float r=0;
     if(one[t] != two[t]) {
       textSize(50);
      text("MOVEMENT DETECTED",10,40); // lines 8 through 11 check for a Δ between dvals and lines, if there is a difference it will alert the users 
+     start("dart exe file here");
 }
 }
 }
