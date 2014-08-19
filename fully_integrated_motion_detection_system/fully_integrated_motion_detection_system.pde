@@ -1,5 +1,6 @@
 String one[]=loadStrings("lines.txt"); //this histogram is made when the tissue is first placed
 String two[]=loadStrings("dvals.txt");// txt file displaying histogram values
+int a=0;
 size(640, 360);
 PrintWriter ouput;
 PImage histoimg;
@@ -36,9 +37,13 @@ float r=0;
   println(two.length);
   for( int t=0;r<one.length;r++){
     if(one[t] != two[t]) {
+    a=a+1;
+    if(a>((dacam.width*dacam.height)/700){
       textSize(50);
      text("MOVEMENT DETECTED",10,40); // lines 8 through 11 check for a Δ between dvals and lines, if there is a difference it will alert the users 
      start("dart exe file here");
+     a=0;
+     }
 }
 }
 }
