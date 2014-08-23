@@ -1,3 +1,4 @@
+PrintWriter output;
 String one[]=loadStrings("lines.txt"); //this histogram is made when the tissue is first placed
 String two[]=loadStrings("dvals.txt");// txt file displaying histogram values
 int a=0;
@@ -11,6 +12,7 @@ import processing.video.*;
 Capture dacam;
 PImage img;
 void setup() {
+  output = createWriter("aggregator.txt"); 
   img=(loadImage(a+".png"));
   size (640,480);
   dacam= new Capture(this, 320, 240, 30);
@@ -42,6 +44,8 @@ float r=0;
       textSize(50);
      text("MOVEMENT DETECTED",10,40); // lines 8 through 11 check for a Δ between dvals and lines, if there is a difference it will alert the users 
      start("dart exe file here");
+     output.println("1");
+     output.close();
      a=0;
      }
 }
