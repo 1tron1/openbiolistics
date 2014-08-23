@@ -7,21 +7,9 @@ import 'dart:async';
 
 main() {
   
-   final file = new File('userdata.txt');
-  Stream<List<int>> inputStream = file.openRead();
-
-  inputStream
-    // Decode to UTF8.
-    .transform(UTF8.decoder)
-    // Convert stream to individual lines.
-    .transform(new LineSplitter())
-    // Process results.
-    .listen((String line) {
-        print('$line: ${line.length} bytes');
-      },
-      onDone: () { print('File is now closed.'); },
-      onError: (e) { print(e.toString()); });
-}
+ var file = new File(Platform.script.toFilePath());
+  Future<String> finishedReading = file.readAsString(encoding: ASCII);
+  if(finishedReading.then((text)=="1"){
   
   
   
@@ -45,4 +33,5 @@ main() {
   emailTransport.send(envelope)
     .then((success) => print('Members Alerted!'))
     .catchError((e) => print('Error occured: $e'));
+  }
 }
